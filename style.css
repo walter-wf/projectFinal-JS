@@ -1,28 +1,40 @@
+/* Estilos generales para el cuerpo de la página */
 body {
     font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #eabbbb;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
 }
 
+/* Estilos para el encabezado */
 h1 {
-    text-align: center;
+    color: #333;
     padding: 20px;
-    background-color: #333;
-    color: white;
 }
 
-button {
-    display: block;
-    margin: 10px auto;
-    padding: 10px 20px;
+/* Estilos para el logo */
+.logo {
+    max-width: 150px; /* Ancho máximo del logo */
+    display: block; /* Para que el margen automático funcione correctamente */
+    margin: 0 auto 0 0; /* Centrar horizontalmente */
+    padding: 10px; /* Espaciado interno alrededor del logo */
+    border: 2px solid #007bff; /* Borde alrededor del logo */
+    border-radius: 5px; /* Borde redondeado */
+}
+
+
+/* Estilos para los botones */
+.boton {
     background-color: #007bff;
-    color: white;
+    color: #fff;
+    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
 }
 
-button:hover {
+.boton:hover {
     background-color: #0056b3;
 }
