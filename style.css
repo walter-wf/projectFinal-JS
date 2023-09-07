@@ -38,3 +38,35 @@ h1 {
 .boton:hover {
     background-color: #0056b3;
 }
+
+/* Estilos para el footer */
+footer {
+    background-color: #d4d4b9;
+    color: #fff;
+    padding: 20px 0;
+}
+
+/* Estilos para la columna del mapa */
+footer .col-md-6:nth-child(1) {
+    padding-right: 30px;
+}
+
+/* Estilos para los enlaces de redes sociales */
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer ul li a:hover {
+    color: #007bff;
+}
