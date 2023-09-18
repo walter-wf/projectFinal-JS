@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Store</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
-
-
-<!------------------------ Header ----------------------------------------------------------------------------->
+    <!------------------------------- Header ------------------------------->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="#">Fantasy Sci/Fi Books</a>
@@ -26,7 +26,7 @@
                         <a class="nav-link" href="#">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Productos</a>
+                        <a class="nav-link" href="#">Tienda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contacto</a>
@@ -35,100 +35,169 @@
             </div>
         </div>
     </nav>
-<!---------------------------- Body -------------------------------------------------------------------------------------->
 
-<!---------------------------- Tarjeta de Producto 1 -------------------------------------------------------------------->
+    <!-------------------------------------- Body -------------------------------------->
 
-    <div class="container">
 
-        <div class="container d-flex justify-content-center">
+    </head>
 
-            <div class="card m-3" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Brandon Sanderson</h5>
-                    <p class="card-text">Precio: $10</p>
-                    <p class="card-text">Cantidad Disponible: 5</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarro('Libro 1')">Agregar al Carrito</button>
+    <body>
+
+        <div class="container">
+
+
+            <!-------------------------------------- Carrousel ---------------------------->
+            <div id="miCarrousel" class="carousel slide" data-ride="carousel">
+                <!-- Indicadores -->
+                <ul class="carousel-indicators">
+                    <li data-target="#miCarrousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#miCarrousel" data-slide-to="1"></li>
+                    <li data-target="#miCarrousel" data-slide-to="2"></li>
+                </ul>
+
+                <!------------------------------- Imágenes del Carrousel ------------------------>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="Media/banner.png" alt="Imagen 1">
+                        <div class="carousel-caption">
+
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Media/6781341.jpg" alt="Imagen 2">
+                        <div class="carousel-caption">
+                            <h3>Título de la Imagen 2</h3>
+                            <p>Descripción de la Imagen 2.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="Media/7976529.jpg" alt="Imagen 3">
+                        <div class="carousel-caption">
+                            <h3>Título de la Imagen 3</h3>
+                            <p>Descripción de la Imagen 3.</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-<!--------------------------------------------- Tarjeta de Producto 2 ---------------------------------------------------->
-            <div class="card m-3" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Mass Effect</h5>
-                    <p class="card-text">Precio: $15</p>
-                    <p class="card-text">Cantidad Disponible: 3</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarro('Libro 2')">Agregar al Carrito</button>
+                <!-------------------------------------- Controles de Navegación -------------------------------------->
+                <a class="carousel-control-prev" href="#miCarrousel" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Anterior</span>
+                </a>
+                <a class="carousel-control-next" href="#miCarrousel" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Siguiente</span>
+                </a>
+            </div>
+        </div>
+
+
+
+        <!-------------------------------------------- Tarjeta de Productos --------------------------------------->
+
+
+        <div class="container">
+            <div class="row justify-content-center">
+                <!------------------------------ Tarjeta de Producto 1 --------------------------------------->
+                <div class="col-md-4">
+                    <div class="card m-3" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Brandon Sanderson</h5>
+                            <p class="card-text">Precio: $10</p>
+                            <p class="card-text">Cantidad Disponible: 5</p>
+                            <button class="btn btn-primary" onclick="agregarAlCarro('Brandon Sanderson')">Agregar al
+                                Carrito</button>
+                        </div>
+                    </div>
                 </div>
-            </div>
 
-<!------------------------------------------ Tarjeta de Producto 3 -------------------------------------------------------->
-            <div class="card m-3" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Garden Of The Moons</h5>
-                    <p class="card-text">Precio: $20</p>
-                    <p class="card-text">Cantidad Disponible: 7</p>
-                    <button class="btn btn-primary" onclick="agregarAlCarro('Libro 3')">Agregar al Carrito</button>
+                <!-------------------------------------- Tarjeta de Producto 2 -------------------------------------->
+                <div class="col-md-4">
+                    <div class="card m-3" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Mass Effect</h5>
+                            <p class="card-text">Precio: $15</p>
+                            <p class="card-text">Cantidad Disponible: 3</p>
+                            <button class="btn btn-primary" onclick="agregarAlCarro('Mass Effect')">Agregar al
+                                Carrito</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-------------------------------------- Tarjeta de Producto 3 -------------------------------------->
+                <div class="col-md-4">
+                    <div class="card m-3" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Garden Of The Moons</h5>
+                            <p class="card-text">Precio: $20</p>
+                            <p class="card-text">Cantidad Disponible: 7</p>
+                            <button class="btn btn-primary" onclick="agregarAlCarro('Garden Of The Moons')">Agregar al
+                                Carrito</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
-<!------------------------------------------------------- Body ------------------------------------------------------------------>
 
 
 
-<!------------------------------------------ Funciones JS ------------------------------------------------------------------------>
+        <!-------------------------------------- Funciones JS ------------------------------------->
+        <div class="container mt-4">
+            <button class="btn btn-primary" onclick="checkAvailability()">Verificar Disponibilidad</button>
+            <button class="btn btn-primary" onclick="calcularTotal()">Calcular Total</button>
+            <button class="btn btn-primary" onclick="agregarAlCarro()">Agregar al Carrito</button>
+            <button class="btn btn-primary" onclick="displayCart()">Ver Carrito</button>
+        </div>
 
-        <button onclick="checkAvailability()">Verificar Disponibilidad</button>
-        <button onclick="calcularTotal()">Calcular Total</button>
-        <button onclick="agregarAlCarro()">Agregar al Carrito</button>
-        <button onclick="displayCart()">Ver Carrito</button>
+        <div id="output" class="container mt-4"></div>
 
         <script src="script.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 
-</body>
-<!------------------------------------------ Footer ------------------------------------------------------------------------------>
 
-<!--<footer>
-    <div class="container">
-        <div class="row">
-         
-           Columna para enlaces a redes sociales -->
-            <!--git add<div class="col-md-6">
-                <h5>Redes Sociales</h5>
-                Aquí puedes agregar enlaces a tus redes sociales
-                <ul class="list-unstyled">
-                    <li><a href="https://www.facebook.com/TuPaginaDeFacebook" target="_blank">Facebook</a></li>
-                    <li><a href="https://twitter.com/TuCuentaDeTwitter" target="_blank">Twitter</a></li>
-                    <li><a href="https://www.instagram.com/TuCuentaDeInstagram" target="_blank">Instagram</a></li>
-                </ul>
+        <!-------------------------------------- Footer -------------------------------------->
+        <footer>
+            <div class="container mt-4">
+                <!-- Columna para enlaces a redes sociales -->
+                <div class="col-md-6">
+                    <h5>Redes Sociales</h5>
+                    Aquí puedes agregar enlaces a tus redes sociales
+                    <ul class="list-unstyled">
+                        <li><a href="https://www.facebook.com/TuPaginaDeFacebook" target="_blank">Facebook</a></li>
+                        <li><a href="https://twitter.com/TuCuentaDeTwitter" target="_blank">Twitter</a></li>
+                        <li><a href="https://www.instagram.com/TuCuentaDeInstagram" target="_blank">Instagram</a></li>
+                    </ul>
+                </div>
+
+                <!-------------------------------------- Formulario de contacto -------------------------------------->
+                <div class="row mt-4">
+                    <div class="col-md-12">
+                        <h5>Contacto</h5>
+                        <form>
+                            <div class="form-group">
+                                <label for="nombre">Nombre:</label>
+                                <input type="text" class="form-control" id="nombre" placeholder="Nombre completo">
+                            </div>
+                            <div class="form-group">
+                                <label for="correo">Correo Electrónico:</label>
+                                <input type="email" class="form-control" id="correo" placeholder="correo@ejemplo.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="mensaje">Mensaje:</label>
+                                <textarea class="form-control" id="mensaje" rows="4"
+                                    placeholder="Escribe tu mensaje aquí"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Enviar</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-        </div>-->
+        </footer>
 
- <!-- Formulario de contacto 
-        <div class="row">
-            <div class="col-md-12">
-                <h5>Contacto</h5>
-                <form>
-                    <div class="form-group">
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" class="form-control" id="nombre" placeholder="Nombre completo">
-                    </div>
-                    <div class="form-group">
-                        <label for="correo">Correo Electrónico:</label>
-                        <input type="email" class="form-control" id="correo" placeholder="correo@ejemplo.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="mensaje">Mensaje:</label>
-                        <textarea class="form-control" id="mensaje" rows="4" placeholder="Escribe tu mensaje aquí"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Enviar</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</footer> -->
-
+    </body>
 
 </html>

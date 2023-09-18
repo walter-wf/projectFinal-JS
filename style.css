@@ -39,6 +39,63 @@ h1 {
     background-color: #0056b3;
 }
 
+/* Estilos carrousel */
+.carousel-item img {
+    width: 80%; /* Ajusta el ancho como desees */
+    height: auto; /* Mantiene la relación de aspecto original */
+    display: block; /* Para asegurarte de que las imágenes se centren correctamente */
+    margin: 0 auto; /* Centra horizontalmente */
+    /* max-height: 100%; */ /* Ajusta la altura máxima según sea necesario */
+}
+
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1rem;
+    color: #777;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.btn-primary {
+    background-color: #992bfa;
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* Espaciado entre las tarjetas */
+.m-3 {
+    margin: 1rem;
+}
+
+/* Estilo para el contenedor de las tarjetas */
+.container {
+    padding: 2rem;
+}
+
+
 /* Estilos para el footer */
 footer {
     background-color: #d4d4b9;
@@ -69,4 +126,45 @@ footer ul li a {
 
 footer ul li a:hover {
     color: #007bff;
+}
+
+
+
+/* Estilos Tienda */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.precio {
+    font-weight: bold;
+    color: #007BFF;
+    font-size: 18px;
+}
+
+.form-group {
+    margin-top: 10px;
+}
+
+.btn {
+    margin-top: 10px;
 }
