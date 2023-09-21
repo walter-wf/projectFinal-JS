@@ -1,46 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tienda</title>
-</head>
-<body>
-    <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda en Línea</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="script.js"></script>
 </head>
+
 <body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Fantasy Sci/Fi Books</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tienda.html">Tienda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
     <div class="container">
         <h1>Tienda en Línea</h1>
-        <div class="row">
-            <!-- Tarjeta de Producto 1 -->
-            <div class="col">
-                <div class="card">
-                    <img src="Media/brandonSanderonsWayOfKings.JPG" alt="Producto 1">
-                    <div class="card-body">
-                        <h5 class="card-title">Producto 1</h5>
-                        <p class="card-text">Descripción del producto 1.</p>
-                        <p class="precio">$10.99</p>
-                        <div class="form-group">
-                            <label for="cantidad_producto_1">Cantidad:</label>
-                            <input type="number" class="form-control" id="cantidad_producto_1" value="1">
-                        </div>
-                        <button class="btn btn-primary">Agregar al Carrito</button>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Repite el bloque de tarjeta de producto para otros productos -->
-            
+        <div class="row" id="product-list">
+           
         </div>
     </div>
-</body>
-</html>
+    
+    </div>
+    <script>
+        // Función para cargar los productos desde el JSON
+        function cargarProductos() {
+            fetch('productos.json')
+                .then(response => response.json())
+                .then(data => {
+                    const productList = document.getElementById('product-list');
+                    
+                    data.forEach(product => {
+                        const productHTML = `
+                            <div class="product">
+                                <img src="${product.imagen}" alt="${product.nombre}">
+                                <h2>${product.nombre}</h2>
+                                <p>Precio: $${product.precio}</p>
+                                <div>
+                                    <button class="quantity-button" onclick="decrementQuantity('quantity${product.nombre}')"><i class="fas fa-minus"></i></button>
+                                    <input type="number" id="quantity${product.nombre}" value="1" class="quantity-input">
+                                    <button class="quantity-button" onclick="incrementQuantity('quantity${product.nombre}')"><i class="fas fa-plus"></i></button>
+                                </div>
+                                <button class="add-to-cart" data-product="${product.nombre}" data-price="${product.precio}">Agregar al carrito</button>
+                                <div id="carrito"></div>
+
+                            </div>
+                        `;
+                        productList.innerHTML += productHTML;
+                    });
+                })
+                .catch(error => console.error('Error al cargar el JSON:', error));
+        }
+
+        // Llama a la función para cargar los productos desde el JSON
+        cargarProductos();
+    </script>
+    
+    <button class="btn btn-primary" onclick="mostrarCarrito()">Ver Carrito</button>
+ 
+
+
+    
+    <!-- Modal para mostrar el carrito -->
+<div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="carritoModalLabel">Carrito de Compras</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="carritoContenido">
+                <!-- Aquí se mostrarán los productos en el carrito -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 </body>
+
 </html>

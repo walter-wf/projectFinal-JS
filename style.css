@@ -1,8 +1,12 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css');
+
+
+
 /* Estilos generales para el cuerpo de la página */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #eabbbb;
+    background-image: linear-gradient(to right, #d71fef 0%, #0083f5 100%, #8bd3e8 50%, #258cc0 24%);
     margin: 0;
     padding: 0;
 }
@@ -96,6 +100,50 @@ h1 {
 }
 
 
+/* Estilo para el contenedor del banner central */
+
+
+.contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30cm; 
+    max-height: 2.5cm; 
+    background-color: #f0f0f0; 
+    padding: 5px; 
+    margin: 0 auto; 
+    border-radius: 10px; 
+}
+
+.icono {
+    margin: 0 5px; 
+    font-size: 24px; 
+}
+
+.icono-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333; 
+    margin: 5px 0;
+}
+
+.icono-link i {
+    font-size: 24px; 
+}
+
+.icono-link span {
+    font-size: 12px; 
+    margin-top: 5px; 
+}
+
+
+
+
+
+
+
 /* Estilos para el footer */
 footer {
     background-color: #d4d4b9;
@@ -168,3 +216,39 @@ body {
 .btn {
     margin-top: 10px;
 }
+
+       /* Estilos para el catálogo de productos */
+       .product {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+        text-align: center;
+        width: 200px;
+        display: inline-block;
+    }
+
+    /* Estilos para el botón Agregar al carrito */
+    .add-to-cart {
+        background-color: #cf69de;
+        color: #fff;
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 20px;
+    }
+
+    /* Estilos para el botón de cantidad */
+    .quantity-button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 5px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+    }
+
+    .quantity-input {
+        width: 30px;
+        text-align: center;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
