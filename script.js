@@ -1,43 +1,97 @@
 let carrito = [];
-let autoresCienciaFiccion = [] // Variable para almacenar los datos del JSON
+let autoresCienciaFiccion = []; // Variable para almacenar los datos del JSON
 
 // Función para mostrar los elementos del JSON
 function mostrarElementos() {
-    // Tu código para mostrar elementos aquí
+    if (autoresCienciaFiccion.length >= 3) {
+        const elementos = autoresCienciaFiccion.slice(0, 12);
+        const elementosContainer = document.getElementById('elementos-container');
+        elementosContainer.innerHTML = '';
+
+        elementos.forEach(elemento => {
+            const elementoHTML = document.createElement('div');
+            elementoHTML.classList.add('col-md-4');
+            elementoHTML.innerHTML = `
+                <div class="card m-3">
+                    <img src="${elemento.foto}" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">${elemento.nombre}</h5>
+                        <p class="card-text">Precio: $${elemento.precio}</p>
+                        <p class="card-text">Cantidad Disponible: ${elemento.cantidad}</p>
+                        <button class="btn btn-primary" onclick="agregarAutorAlCarro('${elemento.nombre}')">Agregar al Carrito</button>
+                    </div>
+                </div>
+            `;
+
+            elementosContainer.appendChild(elementoHTML);
+        });
+    } else {
+        alert('No hay suficientes elementos en el JSON para mostrar.');
+    }
 }
 
-// Función para cargar los datos desde el JSON
+ // Función para cargar los datos desde el JSON
+
 function cargarAutoresCienciaFiccion() {
     fetch('productos.json')
         .then(response => response.json())
         .then(data => {
             autoresCienciaFiccion = data;
-            mostrarElementos(); 
+            mostrarElementos();
         })
         .catch(error => console.error('Error al cargar el JSON:', error));
 }
 
-// Llama a la función para cargar los datos desde el JSON
+              
 cargarAutoresCienciaFiccion();
 
 
 
+// Función para ver el carrito utilizando Toastify
 
-// Función para agregar un autor al carrito
+
+function verCarrito() {
+    let carritoHTML = "Carrito de Compras:";
+
+    for (const autor in carrito) {
+        carritoHTML += ` ${autor}, Cantidad: ${carrito[autor].cantidad}, Precio: $${(carrito[autor].precio * carrito[autor].cantidad).toFixed(2)}<br>`;
+    }
+
+    if (carritoHTML === "Carrito de Compras:") {
+        carritoHTML += " El carrito está vacío.";
+    }
+
+    Toastify({
+        text: carritoHTML,
+        duration: 0,
+        gravity: "top",
+        position: "center",
+        style: {
+            background: "#007bff",
+            color: "#fff"
+        },
+        stopOnFocus: true,
+        close: true,
+    }).showToast();
+}
+
+
+// Función para agregar un autor al carrito usando Toastify
 function agregarAutorAlCarro(nombre) {
-    // Verifica que autoresCienciaFiccion y carrito estén definidos y contengan datos
-    if (typeof autoresCienciaFiccion === 'object' && Object.keys(autoresCienciaFiccion).length > 0) {
-        if (autoresCienciaFiccion.hasOwnProperty(nombre)) {
+
+    if (typeof autoresCienciaFiccion === 'object' && autoresCienciaFiccion.length > 0) {
+        const autorEncontrado = autoresCienciaFiccion.find(autor => autor.nombre === nombre);
+        if (autorEncontrado) {
             if (!carrito.hasOwnProperty(nombre)) {
                 carrito[nombre] = {
-                    precio: autoresCienciaFiccion[nombre].precio,
+                    precio: autorEncontrado.precio,
                     cantidad: 0
                 };
             }
 
-            if (autoresCienciaFiccion[nombre].cantidad > 0) {
+            if (autorEncontrado.cantidad > 0) {
                 carrito[nombre].cantidad++;
-                autoresCienciaFiccion[nombre].cantidad--;
+                autorEncontrado.cantidad--;
 
                 Toastify({
                     text: `Agregado ${nombre} al carrito`,
@@ -45,14 +99,10 @@ function agregarAutorAlCarro(nombre) {
                     gravity: "top",
                     position: "center",
                     style: {
-                        background: "#007bff" 
+                        background: "#007bff"
                     },
                     stopOnFocus: true,
                 }).showToast();
-
-                // Mostrar mensaje en un elemento HTML con el id "mensaje"
-                document.getElementById('mensaje').innerText = `Agregado ${nombre} al carrito`;
-
             } else {
                 Toastify({
                     text: `${nombre} no está disponible`,
@@ -64,9 +114,6 @@ function agregarAutorAlCarro(nombre) {
                     },
                     stopOnFocus: true,
                 }).showToast();
-
-                // Mostrar mensaje en un elemento HTML con el id "mensaje"
-                document.getElementById('mensaje').innerText = `${nombre} no está disponible.`;
             }
         } else {
             Toastify({
@@ -79,27 +126,10 @@ function agregarAutorAlCarro(nombre) {
                 },
                 stopOnFocus: true,
             }).showToast();
-
-            /* // Mostrar mensaje en un elemento HTML con el id "mensaje"
-            document.getElementById('mensaje').innerText = `${nombre} no está en la lista de autores.`; */
         }
     } else {
-        alert('Los datos de autoresCienciaFiccion no se han cargado correctamente.'); 
+        alert('Los datos de autoresCienciaFiccion no se han cargado correctamente.');
     }
-}
-
-
-function mostrarMensaje(Agregado) {
-    Toastify({
-        text: mensaje,
-        duration: 2000,
-        gravity: "top",
-        position: "center",
-        style: {
-            background: "#007bff"
-        },
-        stopOnFocus: true,
-    }).showToast();
 }
 
 function calcularTotal() {
@@ -119,8 +149,6 @@ function calcularTotal() {
         },
         stopOnFocus: true,
     }).showToast();
-
-    mostrarMensaje(`Total de la compra: $${totalCarrito.toFixed(2)}`);
 }
 
 function mostrarCarrito() {
@@ -144,89 +172,38 @@ function mostrarCarrito() {
 }
 
 
-                                                                                //Tienda//
+// Función para ver el carrito en el HTML
+function verCarrito() {
+    const carritoContenidoHTML = document.getElementById('carritoContenidoHTML');
+    carritoContenidoHTML.innerHTML = ''; // Limpiar contenido anterior
 
-// Función para decrementar la cantidad
-function decrementQuantity(inputId) {
-    const quantityInput = document.getElementById(inputId);
-    let quantity = parseInt(quantityInput.value);
-    
-    if (quantity > 1) {
-        quantity--;
-        quantityInput.value = quantity;
+    let carritoHTML = "Carrito de Compras:";
+
+    for (const autor in carrito) {
+        carritoHTML += `<p>${autor}, Cantidad: ${carrito[autor].cantidad}, Precio: $${(carrito[autor].precio * carrito[autor].cantidad).toFixed(2)}</p>`;
+    }
+
+    if (carritoHTML === "Carrito de Compras:") {
+        carritoHTML += " El carrito está vacío.";
+    }
+
+    carritoContenidoHTML.innerHTML = carritoHTML;
+}
+
+
+
+// Función para guardar el carrito en localStorage
+function guardarCarritoEnLocalStorage() {
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+}
+
+// Función para cargar el carrito desde localStorage al cargar la página
+function cargarCarritoDesdeLocalStorage() {
+    const carritoGuardado = localStorage.getItem("carrito");
+    if (carritoGuardado) {
+        carrito = JSON.parse(carritoGuardado);
     }
 }
 
-// Función para incrementar la cantidad
-function incrementQuantity(inputId) {
-    const quantityInput = document.getElementById(inputId);
-    let quantity = parseInt(quantityInput.value);
-    
-    quantity++;
-    quantityInput.value = quantity;
-}
-
-
-
-function agregarAlCarrito(producto, precio) {
-  
-    if (carrito.hasOwnProperty(producto)) {
-        carrito[producto].cantidad++;
-    } else {
-        carrito[producto] = {
-            precio: precio,
-            cantidad: 1
-        };
-    }
-
-  
-    mostrarMensaje(`Agregado ${producto} al carrito`);
-}
-
-
-function mostrarMensaje(mensaje) {
-   
-    Toastify({
-        text: mensaje,
-        duration: 2000,
-        gravity: "top",
-        position: "center",
-        style: {
-            background: "#007bff"
-        },
-        stopOnFocus: true,
-    }).showToast();
-}
-
-
-
-
-// Función para mostrar los productos en el carrito
-function mostrarCarrito() {
-    const carritoContenido = document.getElementById('carritoContenido');
-    carritoContenido.innerHTML = '';
-
-    let totalCarrito = 0;
-
-    for (const producto in carrito) {
-        const { precio, cantidad } = carrito[producto];
-        const subtotal = precio * cantidad;
-        totalCarrito += subtotal;
-
-        const productoHTML = `
-            <div>
-                <p>${producto} - Cantidad: ${cantidad} - Precio: $${precio.toFixed(2)} - Subtotal: $${subtotal.toFixed(2)}</p>
-            </div>
-        `;
-
-        carritoContenido.innerHTML += productoHTML;
-    }
-
-    carritoContenido.innerHTML += `
-        <hr>
-        <p>Total de la compra: $${totalCarrito.toFixed(2)}</p>
-    `;
-
-    $('#carritoModal').modal('show'); 
-}
-
+// Llama a la función para cargar el carrito desde localStorage al cargar la página
+cargarCarritoDesdeLocalStorage();

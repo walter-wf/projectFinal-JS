@@ -19,12 +19,12 @@ h1 {
 
 /* Estilos para el logo */
 .logo {
-    max-width: 150px; /* Ancho máximo del logo */
-    display: block; /* Para que el margen automático funcione correctamente */
-    margin: 0 auto 0 0; /* Centrar horizontalmente */
-    padding: 10px; /* Espaciado interno alrededor del logo */
-    border: 2px solid #007bff; /* Borde alrededor del logo */
-    border-radius: 5px; /* Borde redondeado */
+    max-width: 150px; 
+    display: block; 
+    margin: 0 auto 0 0; 
+    padding: 10px; 
+    border: 2px solid #007bff; 
+    border-radius: 5px; 
 }
 
 
@@ -45,11 +45,11 @@ h1 {
 
 /* Estilos carrousel */
 .carousel-item img {
-    width: 80%; /* Ajusta el ancho como desees */
-    height: auto; /* Mantiene la relación de aspecto original */
-    display: block; /* Para asegurarte de que las imágenes se centren correctamente */
-    margin: 0 auto; /* Centra horizontalmente */
-    /* max-height: 100%; */ /* Ajusta la altura máxima según sea necesario */
+    width: 80%; 
+    height: auto; 
+    display: block; 
+    margin: 0 auto; 
+    /* max-height: 100%; */ 
 }
 
 
@@ -141,114 +141,3 @@ h1 {
 
 
 
-
-
-
-/* Estilos para el footer */
-footer {
-    background-color: #d4d4b9;
-    color: #fff;
-    padding: 20px 0;
-}
-
-/* Estilos para la columna del mapa */
-footer .col-md-6:nth-child(1) {
-    padding-right: 30px;
-}
-
-/* Estilos para los enlaces de redes sociales */
-footer ul {
-    list-style: none;
-    padding: 0;
-}
-
-footer ul li {
-    margin-bottom: 10px;
-}
-
-footer ul li a {
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-footer ul li a:hover {
-    color: #007bff;
-}
-
-
-
-/* Estilos Tienda */
-
-body {
-    font-family: Arial, sans-serif;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.card {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    margin: 10px;
-    padding: 10px;
-    text-align: center;
-}
-
-.card img {
-    max-width: 100%;
-    height: auto;
-}
-
-.precio {
-    font-weight: bold;
-    color: #007BFF;
-    font-size: 18px;
-}
-
-.form-group {
-    margin-top: 10px;
-}
-
-.btn {
-    margin-top: 10px;
-}
-
-       /* Estilos para el catálogo de productos */
-       .product {
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin: 10px;
-        text-align: center;
-        width: 200px;
-        display: inline-block;
-    }
-
-    /* Estilos para el botón Agregar al carrito */
-    .add-to-cart {
-        background-color: #cf69de;
-        color: #fff;
-        padding: 5px 10px;
-        cursor: pointer;
-        border-radius: 20px;
-    }
-
-    /* Estilos para el botón de cantidad */
-    .quantity-button {
-        background-color: #007bff;
-        color: #fff;
-        padding: 5px;
-        cursor: pointer;
-        border: none;
-        border-radius: 5px;
-    }
-
-    .quantity-input {
-        width: 30px;
-        text-align: center;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
