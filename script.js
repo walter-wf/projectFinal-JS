@@ -47,6 +47,52 @@ cargarAutoresCienciaFiccion();
 
 
 
+// Función para mostrar el mensaje de agradecimiento con Toastify
+function showThankYouMessage() {
+    Toastify({
+        text: "¡Muchas gracias por su contacto!",
+        duration: 3000,
+        close: true,
+        gravity: "bottom", 
+        position: "center", 
+        backgroundColor: "green", 
+        stopOnFocus: true 
+    }).showToast();
+}
+
+// Agregar un manejador de eventos para el formulario
+document.getElementById("contact-form").addEventListener("submit", function (event) {
+    event.preventDefault(); 
+
+    // Obtener los datos del formulario
+    const formData = new FormData(event.target);
+
+    // Convertir los datos del formulario a un objeto JSON
+    const formDataJSON = {};
+    formData.forEach((value, key) => {
+        formDataJSON[key] = value;
+    });
+
+    // Simular el envío de datos a un servidor (usando JSONPlaceholder como ejemplo)
+    fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formDataJSON)
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Respuesta del servidor:", data);
+        showThankYouMessage(); 
+    })
+    .catch(error => {
+        console.error("Error al enviar el formulario:", error);
+    });
+});
+
+
+
 // Función para ver el carrito utilizando Toastify
 
 
@@ -207,3 +253,8 @@ function cargarCarritoDesdeLocalStorage() {
 
 // Llama a la función para cargar el carrito desde localStorage al cargar la página
 cargarCarritoDesdeLocalStorage();
+
+
+
+
+
