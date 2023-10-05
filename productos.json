@@ -3,7 +3,7 @@
         "id": 1,
         "nombre": "Isaac Asimov",
         "libro": "Fundación",
-        "foto": "isaac_asimov.jpg",
+        "foto": "Media/Fundacion.webp",
         "cantidad": 22,
         "precio": 10.99
     },
@@ -11,7 +11,7 @@
         "id": 2,
         "nombre": "Arthur C. Clarke",
         "libro": "2001: Una odisea espacial",
-        "foto": "arthur_c_clarke.jpg",
+        "foto": "Media/Odisea.webp",
         "cantidad": 24,
         "precio": 12.99
     },
@@ -19,7 +19,7 @@
         "id": 3,
         "nombre": "Philip K. Dick",
         "libro": "Blade Runner",
-        "foto": "philip_k_dick.jpg",
+        "foto": "Media/Blade.jpg",
         "cantidad": 20,
         "precio": 11.49
     },
@@ -27,47 +27,47 @@
         "id": 4,
         "nombre": "Ray Bradbury",
         "libro": "Fahrenheit 451",
-        "foto": "ray_bradbury.jpg",
-        "cantidad": 22,
+        "foto": "Media/Farenheit.webp",
+        "cantidad": 15,
         "precio": 9.99
     },
     {
         "id": 5,
         "nombre": "H.G. Wells",
         "libro": "La guerra de los mundos",
-        "foto": "hg_wells.jpg",
-        "cantidad": 22,
+        "foto": "Media/Guerra.jpeg",
+        "cantidad": 12,
         "precio": 8.99
     },
     {
         "id": 6,
         "nombre": "Frank Herbert",
         "libro": "Dune",
-        "foto": "frank_herbert.jpg",
-        "cantidad": 22,
+        "foto": "Media/Dune.jpeg",
+        "cantidad": 10,
         "precio": 13.99
     },
     {
         "id": 7,
         "nombre": "Ursula K. Le Guin",
         "libro": "Los desposeídos",
-        "foto": "ursula_k_le_guin.jpg",
-        "cantidad": 22,
+        "foto": "Media/Desposeidos.webp",
+        "cantidad": 20,
         "precio": 10.99
     },
     {
         "id": 8,
         "nombre": "William Gibson",
         "libro": "Neuromante",
-        "foto": "william_gibson.jpg",
-        "cantidad": 22,
+        "foto": "Media/Neuro.png",
+        "cantidad": 13,
         "precio": 11.99
     },
     {
         "id": 9,
         "nombre": "Aldous Huxley",
         "libro": "Un mundo feliz",
-        "foto": "aldous_huxley.jpg",
+        "foto": "Media/Mundo.jpg",
         "cantidad": 22,
         "precio": 9.49
     },
@@ -75,7 +75,7 @@
         "id": 10,
         "nombre": "Douglas Adams",
         "libro": "Guía del autoestopista galáctico",
-        "foto": "douglas_adams.jpg",
+        "foto": "Media/Guia.jpeg",
         "cantidad": 22,
         "precio": 10.99
     },
@@ -83,7 +83,7 @@
         "id": 11,
         "nombre": "Brandon Sanderson",
         "libro": "Way Of Kings",
-        "foto": "brandon_sanderson.jpg",
+        "foto": "Media/kings.JPG",
         "cantidad": 22,
         "precio": 15.99
     },
@@ -91,7 +91,7 @@
         "id": 12,
         "nombre": "Steven Eriksson",
         "libro": "Garden Of The Moons",
-        "foto": "steven_eriksson.jpg",
+        "foto": "Media/moon.JPG",
         "cantidad": 22,
         "precio": 14.49
     },
@@ -99,7 +99,7 @@
         "id": 13,
         "nombre": "Mass Effect",
         "libro": "Ascension",
-        "foto": "mass_effect.jpg",
+        "foto": "Media/ME.JPG",
         "cantidad": 22,
         "precio": 13.99
     }
